@@ -4,7 +4,9 @@ DROP TABLE suppliers;
 CREATE TABLE suppliers
 (
   id SERIAL PRIMARY KEY,
-  name VARCHAR(255)
+  name VARCHAR(255),
+  rep VARCHAR(255),
+  rep_contact VARCHAR(255)
 );
 
 CREATE TABLE carpet_stock
