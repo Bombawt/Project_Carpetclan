@@ -33,7 +33,7 @@ class Supplier
     return results.map{|supplier| Supplier.new(supplier)}
   end
 
-  def delete_all()
+  def Supplier.delete_all()
     sql = "DELETE FROM suppliers"
     SqlRunner.run(sql)
   end
@@ -45,13 +45,13 @@ class Supplier
   end
 
   def carpets()
-    sql = "SELECT * FROM carpet_stock
-    INNER JOIN suppliers ON
-    supplier.id WHERE supplier_id = $1;"
+    sql = "SELECT * FROM carpet_stock WHERE supplier_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map{|carpet|CarpetStock.new(carpet)}
+    return results.map{|results_hash|CarpetStock.new(results_hash)}
   end
+
+
 
 
 

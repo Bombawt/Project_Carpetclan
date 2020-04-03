@@ -13,7 +13,7 @@ CREATE TABLE carpet_stock
 (
   id SERIAL PRIMARY KEY,
   range VARCHAR(255),
-  supplier_id INT REFERENCES suppliers(id),
+  supplier_id INT REFERENCES suppliers(id) ON DELETE CASCADE,
   type VARCHAR(255),
   pile VARCHAR(255),
   colour VARCHAR(255),

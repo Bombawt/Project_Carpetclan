@@ -41,7 +41,7 @@ class CarpetStock
     return results.map{|stock| CarpetStock.new(stock)}
   end
 
-  def delete_all()
+  def CarpetStock.delete_all()
     sql = "DELETE FROM carpet_stock"
     SqlRunner.run(sql)
   end
