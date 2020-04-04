@@ -28,14 +28,14 @@ CREATE TABLE rolls
 (
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
-  width VARCHAR,
-  meterage FLOAT
+  roll_width INT,
+  roll_length FLOAT
 );
 
 CREATE TABLE cuts
 (
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
-  width VARCHAR,
-  meterage FLOAT
+  cut_width INT,
+  cut_length FLOAT
 );

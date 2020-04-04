@@ -10,7 +10,7 @@ class TestRoll < Minitest::Test
   def setup
     @roll1 = Roll.new({
       "carpet_id" => 2,
-      "width" => "4m",
+      "width" => 4,
       "meterage" => 30
       })
   end

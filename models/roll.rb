@@ -1,28 +1,29 @@
 require_relative( '../db/sql_runner' )
+require_relative( '/cut')
 
 class Roll
 
-  attr_accessor(:width, :meterage)
+  attr_accessor(:roll_width, :roll_length)
   attr_reader(:id, :carpet_id)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
-    @width = options['width']
-    @meterage = options['meterage']
+    @roll_width = options['roll_width']
+    @roll_length = options['roll_length']
   end
 
   def save()
     sql = "INSERT INTO rolls
     (
       carpet_id,
-      width,
-      length
+      roll_width,
+      roll_length
       )
       VALUES
       ($1, $2, $3)
       RETURNING id"
-      values = [@carpet_id, @width, @meterage]
+      values = [@carpet_id, @roll_width, @roll_length]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
@@ -31,14 +32,14 @@ class Roll
     sql = "UPDATE rolls SET
     (
       carpet_id,
-      width,
-      meterage
+      roll_width,
+      roll_length
       )
       =
       ($1, $2, $3)
       WHERE id = $4
     "
-    values = [@carpet_id, @width, @meterage]
+    values = [@carpet_id, @roll_width, @roll_length]
     SqlRunner.run(sql, values)
   end
 
@@ -73,6 +74,7 @@ class Roll
     results = SqlRunner.run(sql, values)
     return Carpet.new(results.first)
   end
+
 
 
 
