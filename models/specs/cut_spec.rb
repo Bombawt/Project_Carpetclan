@@ -10,13 +10,13 @@ class TestCut < Minitest::Test
     @cut1 = Cut.new({
       "carpet_id" => 5,
       "width" => "4m",
-      "length" => 27.65
+      "meterage" => 27.65
       })
   end
 
   def test_cut_carpet_true
     @cut1.cut_carpet(5.60)
-    result=@cut1.length
+    result=@cut1.meterage
     assert_equal(22.05, result.round(2))
   end
 

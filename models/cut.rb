@@ -2,14 +2,14 @@ require_relative( '../db/sql_runner' )
 
 class Cut
 
-  attr_accessor(:width, :cut_roll)
+  attr_accessor(:width, :meterage)
   attr_reader(:id, :carpet_id)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
     @width = options['width']
-    @length = options['length']
+    @meterage = options['length']
   end
 
   def save()
@@ -17,12 +17,12 @@ class Cut
     (
       carpet_id,
       width,
-      length
+      meterage
       )
       VALUES
       ($1, $2, $3)
       RETURNING id"
-      values = [@carpet_id, @width, @length]
+      values = [@carpet_id, @width, @meterage]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
@@ -32,13 +32,13 @@ class Cut
     (
       carpet_id,
       width,
-      length
+      meterage
       )
       =
       ($1, $2, $3)
       WHERE id = $4
     "
-    values = [@carpet_id, @width, @length]
+    values = [@carpet_id, @width, @meterage]
     SqlRunner.run(sql, values)
   end
 
@@ -75,8 +75,8 @@ class Cut
   end
 
   def cut_carpet(new_cut)
-    if new_cut < @length
-      @length -= new_cut
+    if new_cut < @meterage
+      @meterage -= new_cut
     end
     return "Not enough stock, please try another roll."
   end
