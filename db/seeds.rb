@@ -1,7 +1,9 @@
 require_relative( "../models/supplier.rb" )
 require_relative( "../models/carpet_stock.rb")
+require_relative( "../models/roll_stock.rb")
 require("pry-byebug")
 
+# RollStock.delete_all
 CarpetStock.delete_all
 Supplier.delete_all
 
@@ -77,6 +79,14 @@ carpet4 = CarpetStock.new({
   })
 
 carpet4.save()
+
+roll1 = RollStock.new({
+  "carpet_id" => carpet1.id,
+  "width" => "4m",
+  "full_rolls" => 2
+  })
+
+roll1.save()
 
 
 

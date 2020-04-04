@@ -27,6 +27,6 @@ CREATE TABLE roll_stock
 (
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpet_stock(id) ON DELETE CASCADE,
-  full_rolls INT,
-  cut_rolls FLOAT
+  width VARCHAR,
+  full_rolls INT
 );
