@@ -62,7 +62,7 @@ class Supplier
   def Supplier.find(id)
     sql = "SELECT * FROM suppliers WHERE id = $1"
     values = [id]
-    supplier_hash =SqlRunner.run(sql, values).first()
+    supplier_hash = SqlRunner.run(sql, values).first()
     return nil if supplier_hash == nil
     return Supplier.new(supplier_hash)
   end
