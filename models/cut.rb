@@ -9,7 +9,7 @@ class Cut
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
     @width = options['width']
-    @cut_roll = options['cut_roll']
+    @length = options['length']
   end
 
   def save()
@@ -17,12 +17,12 @@ class Cut
     (
       carpet_id,
       width,
-      cut_roll
+      length
       )
       VALUES
       ($1, $2, $3)
       RETURNING id"
-      values = [@carpet_id, @width, @cut_roll]
+      values = [@carpet_id, @width, @length]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
@@ -32,13 +32,13 @@ class Cut
     (
       carpet_id,
       width,
-      cut_roll
+      length
       )
       =
       ($1, $2, $3)
       WHERE id = $4
     "
-    values = [@carpet_id, @width, @cut_roll]
+    values = [@carpet_id, @width, @length]
     SqlRunner.run(sql, values)
   end
 
@@ -74,7 +74,12 @@ class Cut
     return Carpet.new(results.first)
   end
 
-
+  def cut_carpet(new_cut)
+    if new_cut < @length
+      @length -= new_cut
+    end
+    return "Not enough stock, please try another roll."
+  end
 
 
 end

@@ -29,7 +29,7 @@ CREATE TABLE rolls
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
   width VARCHAR,
-  full_rolls INT
+  length FLOAT
 );
 
 CREATE TABLE cuts
@@ -37,5 +37,5 @@ CREATE TABLE cuts
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
   width VARCHAR,
-  cut_roll FLOAT
+  length FLOAT
 );

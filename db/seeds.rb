@@ -85,7 +85,7 @@ carpet4.save()
 roll1 = Roll.new({
   "carpet_id" => carpet1.id,
   "width" => "4m",
-  "full_rolls" => 2
+  "length" => 30
   })
 
 roll1.save()
@@ -93,7 +93,7 @@ roll1.save()
 cut1 = Cut.new({
   "carpet_id" => carpet1.id,
   "width" => "4m",
-  "cut_roll" => 27.65
+  "length" => 27.65
   })
 
 cut1.save()

@@ -9,7 +9,7 @@ class Roll
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
     @width = options['width']
-    @full_rolls = options['full_rolls']
+    @length = options['full_rolls']
   end
 
   def save()
@@ -17,12 +17,12 @@ class Roll
     (
       carpet_id,
       width,
-      full_rolls
+      length
       )
       VALUES
       ($1, $2, $3)
       RETURNING id"
-      values = [@carpet_id, @width, @full_rolls]
+      values = [@carpet_id, @width, @length]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
@@ -32,13 +32,13 @@ class Roll
     (
       carpet_id,
       width,
-      full_rolls
+      length
       )
       =
       ($1, $2, $3)
       WHERE id = $4
     "
-    values = [@carpet_id, @width, @full_rolls]
+    values = [@carpet_id, @width, @length]
     SqlRunner.run(sql, values)
   end
 
@@ -73,6 +73,8 @@ class Roll
     results = SqlRunner.run(sql, values)
     return Carpet.new(results.first)
   end
+
+
 
 
 
