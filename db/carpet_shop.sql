@@ -1,4 +1,3 @@
-DROP TABLE cuts;
 DROP TABLE rolls;
 DROP TABLE carpets;
 DROP TABLE suppliers;
@@ -30,12 +29,4 @@ CREATE TABLE rolls
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
   roll_width INT,
   roll_length FLOAT
-);
-
-CREATE TABLE cuts
-(
-  id SERIAL PRIMARY KEY,
-  carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
-  cut_width INT,
-  cut_length FLOAT
 );
