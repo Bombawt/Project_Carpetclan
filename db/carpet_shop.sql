@@ -1,5 +1,7 @@
+DROP TABLE roll_stock;
 DROP TABLE carpet_stock;
 DROP TABLE suppliers;
+
 
 CREATE TABLE suppliers
 (
@@ -19,4 +21,12 @@ CREATE TABLE carpet_stock
   colour VARCHAR(255),
   buying_cost FLOAT,
   selling_price FLOAT
+);
+
+CREATE TABLE roll_stock
+(
+  id SERIAL PRIMARY KEY,
+  carpet_id INT REFERENCES carpet_stock(id) ON DELETE CASCADE,
+  full_rolls INT,
+  cut_rolls FLOAT
 );
