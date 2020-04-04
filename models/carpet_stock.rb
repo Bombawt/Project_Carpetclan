@@ -35,6 +35,25 @@ class CarpetStock
       @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE carpet_stock SET
+    (
+      range,
+      supplier_id,
+      type,
+      pile,
+      colour,
+      buying_cost,
+      selling_price
+      )
+      =
+      ($1, $2, $3, $4, $5, $6, $7)
+      WHERE id= $8
+    "
+    values = [@range, @supplier_id, @type, @pile, @colour, @buying_cost, @selling_price, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def CarpetStock.all
     sql = "SELECT * FROM carpet_stock"
     results = SqlRunner.run(sql)
@@ -50,6 +69,14 @@ class CarpetStock
     sql = "DELETE FROM carpet_stock WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
+  end
+
+  def CarpetStock.find(id)
+    sql = "SELECT * FROM carpet_stock WHERE id = $1"
+    values = [id]
+    carpet_stock_hash =SqlRunner.run(sql, values).first()
+    return nil if carpet_stock_hash == nil
+    return CarpetStock.new(carpet_stock_hash)
   end
 
   def supplier()

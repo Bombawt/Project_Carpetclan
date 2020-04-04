@@ -27,6 +27,21 @@ class Supplier
       @id = results.first()['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE suppliers SET
+    (
+      name,
+      rep,
+      rep_contact
+      )
+      =
+      ($1, $2, $3)
+      WHERE id= $4
+    "
+    values = [@name, @rep, @rep_contact, @id]
+    SqlRunner.run(sql, values)
+  end
+
   def Supplier.all
     sql = "SELECT * FROM suppliers"
     results = SqlRunner.run(sql)
@@ -42,6 +57,14 @@ class Supplier
     sql = "DELETE FROM suppliers WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
+  end
+
+  def Supplier.find(id)
+    sql = "SELECT * FROM suppliers WHERE id = $1"
+    values = [id]
+    supplier_hash =SqlRunner.run(sql, values).first()
+    return nil if supplier_hash == nil
+    return Supplier.new(supplier_hash)
   end
 
   def carpets()
