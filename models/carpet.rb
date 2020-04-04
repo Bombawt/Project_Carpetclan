@@ -1,6 +1,6 @@
 require_relative( '../db/sql_runner' )
 
-class CarpetStock
+class Carpet
 
   attr_accessor( :range, :type, :pile, :colour, :buying_cost, :selling_price )
   attr_reader(:id, :supplier_id)
@@ -17,7 +17,7 @@ class CarpetStock
   end
 
   def save()
-    sql = "INSERT INTO carpet_stock
+    sql = "INSERT INTO carpets
     (
       range,
       supplier_id,
@@ -36,7 +36,7 @@ class CarpetStock
   end
 
   def update()
-    sql = "UPDATE carpet_stock SET
+    sql = "UPDATE carpets SET
     (
       range,
       supplier_id,
@@ -54,29 +54,29 @@ class CarpetStock
     SqlRunner.run(sql, values)
   end
 
-  def CarpetStock.all
-    sql = "SELECT * FROM carpet_stock"
+  def Carpet.all
+    sql = "SELECT * FROM carpets"
     results = SqlRunner.run(sql)
-    return results.map{|stock| CarpetStock.new(stock)}
+    return results.map{|stock| Carpet.new(stock)}
   end
 
-  def CarpetStock.delete_all()
-    sql = "DELETE FROM carpet_stock"
+  def Carpet.delete_all()
+    sql = "DELETE FROM carpets"
     SqlRunner.run(sql)
   end
 
   def destroy(id)
-    sql = "DELETE FROM carpet_stock WHERE id = $1"
+    sql = "DELETE FROM carpets WHERE id = $1"
     values = [id]
     SqlRunner.run(sql, values)
   end
 
-  def CarpetStock.find(id)
-    sql = "SELECT * FROM carpet_stock WHERE id = $1"
+  def Carpet.find(id)
+    sql = "SELECT * FROM carpets WHERE id = $1"
     values = [id]
-    carpet_stock_hash =SqlRunner.run(sql, values).first()
-    return nil if carpet_stock_hash == nil
-    return CarpetStock.new(carpet_stock_hash)
+    carpet_hash =SqlRunner.run(sql, values).first()
+    return nil if carpet_hash == nil
+    return Carpet.new(carpet_hash)
   end
 
   def supplier()

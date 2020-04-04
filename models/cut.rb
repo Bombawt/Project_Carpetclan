@@ -1,86 +1,78 @@
 require_relative( '../db/sql_runner' )
 
-class RollStock
+class Cut
 
-  attr_accessor(:width, :full_rolls)
+  attr_accessor(:width, :cut_roll)
   attr_reader(:id, :carpet_id)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
     @width = options['width']
-    @full_rolls = options['full_rolls']
+    @cut_roll = options['cut_roll']
   end
 
   def save()
-    sql = "INSERT INTO roll_stock
+    sql = "INSERT INTO cuts
     (
       carpet_id,
       width,
-      full_rolls
+      cut_roll
       )
       VALUES
       ($1, $2, $3)
       RETURNING id"
-      values = [@carpet_id, @width, @full_rolls]
+      values = [@carpet_id, @width, @cut_roll]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
 
   def update()
-    sql = "UPDATE roll_stock SET
+    sql = "UPDATE cuts SET
     (
       carpet_id,
       width,
-      full_rolls
+      cut_roll
       )
       =
       ($1, $2, $3)
       WHERE id = $4
     "
-    values = [@carpet_id, @width, @full_rolls]
+    values = [@carpet_id, @width, @cut_roll]
     SqlRunner.run(sql, values)
   end
 
-  def RollStock.all
-    sql = "SELECT * FROM roll_stock"
+  def Cut.all
+    sql = "SELECT * FROM cuts"
     results = SqlRunner.run(sql)
-    return results.map{|stock| RollStock.new(stock)}
+    return results.map{|stock| Cut.new(stock)}
   end
 
-  def RollStock.delete_all()
-    sql = "DELETE FROM roll_stock"
+  def Cut.delete_all()
+    sql = "DELETE FROM cuts"
     SqlRunner.run(sql)
   end
 
   def destroy(id)
-    sql = "DELETE FROM roll_stock WHERE id =$1"
+    sql = "DELETE FROM cuts WHERE id =$1"
     values = [id]
     SqlRunner.run(sql, values)
   end
 
-  def RollStock.find(id)
-    sql = "SELECT * FROM roll_stock WHERE id = $1"
+  def Cut.find(id)
+    sql = "SELECT * FROM cuts WHERE id = $1"
     values = [id]
-    roll_stock_hash = SqlRunner.run(sql, values).first()
-    return nil if roll_stock_hash == nil
-    return RollStock.new(roll_stock_hash)
+    cut_hash = SqlRunner.run(sql, values).first()
+    return nil if cut == nil
+    return Cut.new(cut_hash)
   end
 
   def carpet()
-    sql = "SELECT * FROM carpet_stock WHERE id = $1"
+    sql = "SELECT * FROM carpets WHERE id = $1"
     values = [@carpet_id]
     results = SqlRunner.run(sql, values)
-    return CarpetStock.new(results.first)
+    return Carpet.new(results.first)
   end
-
-
-
-
-
-
-
-
 
 
 

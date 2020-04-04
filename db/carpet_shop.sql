@@ -1,5 +1,6 @@
-DROP TABLE roll_stock;
-DROP TABLE carpet_stock;
+DROP TABLE cuts;
+DROP TABLE rolls;
+DROP TABLE carpets;
 DROP TABLE suppliers;
 
 
@@ -11,7 +12,7 @@ CREATE TABLE suppliers
   rep_contact VARCHAR(255)
 );
 
-CREATE TABLE carpet_stock
+CREATE TABLE carpets
 (
   id SERIAL PRIMARY KEY,
   range VARCHAR(255),
@@ -23,10 +24,18 @@ CREATE TABLE carpet_stock
   selling_price FLOAT
 );
 
-CREATE TABLE roll_stock
+CREATE TABLE rolls
 (
   id SERIAL PRIMARY KEY,
-  carpet_id INT REFERENCES carpet_stock(id) ON DELETE CASCADE,
+  carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
   width VARCHAR,
   full_rolls INT
+);
+
+CREATE TABLE cuts
+(
+  id SERIAL PRIMARY KEY,
+  carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
+  width VARCHAR,
+  cut_roll FLOAT
 );

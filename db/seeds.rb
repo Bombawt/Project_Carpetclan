@@ -1,10 +1,12 @@
 require_relative( "../models/supplier.rb" )
-require_relative( "../models/carpet_stock.rb")
-require_relative( "../models/roll_stock.rb")
+require_relative( "../models/carpet.rb")
+require_relative( "../models/roll.rb")
+require_relative( "../models/cut.rb")
 require("pry-byebug")
 
-# RollStock.delete_all
-CarpetStock.delete_all
+Cut.delete_all
+Roll.delete_all
+Carpet.delete_all
 Supplier.delete_all
 
 supplier1 = Supplier.new({
@@ -32,7 +34,7 @@ supplier3 = Supplier.new({
 supplier3.save()
 
 
-carpet1 = CarpetStock.new({
+carpet1 = Carpet.new({
   "range" => "Soft Noble",
   "supplier_id" => supplier1.id,
   "type" => "Polypropolene",
@@ -44,7 +46,7 @@ carpet1 = CarpetStock.new({
 
 carpet1.save()
 
-carpet2 = CarpetStock.new({
+carpet2 = Carpet.new({
   "range" => "Soft Noble",
   "supplier_id" => supplier1.id,
   "type" => "Polypropolene",
@@ -56,7 +58,7 @@ carpet2 = CarpetStock.new({
 
 carpet2.save()
 
-carpet3 = CarpetStock.new({
+carpet3 = Carpet.new({
   "range" => "Cottage Berber",
   "supplier_id" => supplier2.id,
   "type" => "100% Wool",
@@ -68,7 +70,7 @@ carpet3 = CarpetStock.new({
 
 carpet3.save()
 
-carpet4 = CarpetStock.new({
+carpet4 = Carpet.new({
   "range" => "Elegance",
   "supplier_id" => supplier3.id,
   "type" => "Polypropolene",
@@ -80,7 +82,7 @@ carpet4 = CarpetStock.new({
 
 carpet4.save()
 
-roll1 = RollStock.new({
+roll1 = Roll.new({
   "carpet_id" => carpet1.id,
   "width" => "4m",
   "full_rolls" => 2
@@ -88,6 +90,13 @@ roll1 = RollStock.new({
 
 roll1.save()
 
+cut1 = Cut.new({
+  "carpet_id" => carpet1.id,
+  "width" => "4m",
+  "cut_roll" => 27.65
+  })
+
+cut1.save()
 
 
 

@@ -68,10 +68,10 @@ class Supplier
   end
 
   def carpets()
-    sql = "SELECT * FROM carpet_stock WHERE supplier_id = $1"
+    sql = "SELECT * FROM carpets WHERE supplier_id = $1"
     values = [@id]
     results = SqlRunner.run(sql, values)
-    return results.map{|results_hash|CarpetStock.new(results_hash)}
+    return results.map{|results_hash|Carpet.new(results_hash)}
   end
 
 
