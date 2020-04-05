@@ -1,0 +1,32 @@
+<form action="/rolls" method="POST">
+
+
+  <label for="carpet_id">Range: </label>
+  <select id="carpet-range-select" name="carpet_id">
+    <% for carpet in @carpets%>
+    <% range_array = [] %>
+    <% range_array << carpet.range %>
+    <option value= <%=range_array%>> <%=range_array.uniq%></option>
+    <% end %>
+    </select>
+    <p></p>
+  <label for="carpet_colour">Carpet Colour: </label>
+  <select id="carpet-colour-select" name="carpet_id">
+    <% for carpet in @carpets%>
+    <option value= <%=carpet.id%>> <%=carpet.colour%></option>
+    <% end %>
+    </select>
+    <p></p>
+  <label for="roll_width">Roll Width: </label>
+  <select id="carpet-width-select" name="carpet_id">
+    <% for roll in @rolls%>
+    <option value= <%=roll.id%>> <%=roll.roll_width%></option>
+    <% end %>
+    </select>
+    <p></p>
+  <label for="Roll Length">Roll Length: </label>
+  <input id="roll_length" type="text" name="roll_length" required/>
+  <p></p>
+
+
+ <input type="submit" value="Add Roll"/>
