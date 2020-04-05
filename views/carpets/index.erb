@@ -43,7 +43,15 @@ td, th {
     <td><%= carpet.colour %></td>
     <td><%= carpet.buying_cost %></td>
     <td><%= carpet.selling_price %></td>
-    <td><a href="/carpets/<%= carpet.id %>">Check Stock</a></td>
+    <% for roll in @rolls %>
+      <% if roll.carpet_id == carpet.id %>
+  <td><a href="/carpets/<%= carpet.id %>">Check Stock</a></td>
+    <% break %>
+      <% else %>
+  <td>Out of Stock</td>
+  <% break %>
+      <% end %>
+    <% end %>
   </tr>
   <% end %>
 </table>

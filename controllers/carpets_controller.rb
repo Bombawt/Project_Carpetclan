@@ -8,10 +8,15 @@ also_reload( '../models/*' )
 
 get '/carpets' do
   @carpets = Carpet.all()
+  @rolls = Roll.all()
   erb ( :"carpets/index" )
 end
+#
+# get '/carpets/new' do
+#   WAIT
 
-get '/carpets/:id' do
-  @carpets = Carpets.find(params['id'].to_i)
-  erb (:"carpets/show")
-end
+
+# get '/carpets/:id' do
+#   @carpets = Carpets.find(params['id'].to_i)
+#   erb (:"carpets/show")
+# end
