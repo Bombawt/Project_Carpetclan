@@ -34,8 +34,8 @@ td, th {
   </tr>
   <% for carpet in @carpets %>
   <tr>
-    <td><%= carpet.id %></td>
-    <td><a href="/carpets/<%= carpet.range %>"><%= carpet.range %></a></td>
+    <td><a href="/carpets/<%= carpet.id %>"><%= carpet.id %></a></td>
+    <td><%= carpet.range %></td>
     <td><a href="/suppliers/<%= carpet.supplier.id %>"><%= carpet.supplier.name %></a></td>
     <td><%= carpet.type %></td>
     <td><%= carpet.pile %></td>

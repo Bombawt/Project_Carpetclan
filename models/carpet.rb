@@ -86,8 +86,19 @@ class Carpet
     return Supplier.new(results.first)
   end
 
+  def carpets()
+    sql = "SELECT * FROM carpets WHERE supplier_id = $1"
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|results_hash|Carpet.new(results_hash)}
+  end
 
-
+  def rolls()
+    sql = 'SELECT * FROM rolls WHERE carpet_id =$1'
+    values = [@id]
+    results = SqlRunner.run(sql, values)
+    return results.map{|results_hash|Roll.new(results_hash)}
+  end
 
 
 

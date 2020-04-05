@@ -88,6 +88,21 @@ roll1 = Roll.new({
 
 roll1.save()
 
+roll2 = Roll.new({
+  "carpet_id" => carpet1.id,
+  "roll_width" => 4,
+  "roll_length" => 24.50
+  })
+
+roll2.save()
+
+roll3 = Roll.new({
+  "carpet_id" => carpet1.id,
+  "roll_width" => 5,
+  "roll_length" => 14.35
+  })
+
+roll3.save()
 
 
 
