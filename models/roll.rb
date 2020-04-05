@@ -86,21 +86,6 @@ class Roll
     @roll_length == 30
   end
 
-  # def return_full_rolls
-  #   result = @roll_length.keep_if{|roll| if @roll_length == 30;
-  #     return result
-  #   end}
-  # end
-
-
-
-
-
-  #   result = @rolls.keep_if{|roll| if roll.roll_length == 30;
-  #     return result
-  #   end}
-  # end
-
 
 
 

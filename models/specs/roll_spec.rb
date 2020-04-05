@@ -55,17 +55,6 @@ class TestRoll < Minitest::Test
     assert_equal(false, result)
   end
 
-  # def test_full_rolls()
-  #   result = @rolls.return_full_rolls
-  #   assert_equal([@roll1, @roll3], result)
-  # end
-  #
-# def test_return_full_rolls()
-#   result = @rolls.keep_if{|roll| if roll.roll_length == 30;
-#     return result
-#   end}
-#   assert_equal([@roll1, @roll3])
-# end
 
 
 

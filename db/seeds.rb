@@ -1,10 +1,8 @@
 require_relative( "../models/supplier.rb" )
 require_relative( "../models/carpet.rb")
 require_relative( "../models/roll.rb")
-# require_relative( "../models/cut.rb")
 require("pry-byebug")
 
-# Cut.delete_all
 Roll.delete_all
 Carpet.delete_all
 Supplier.delete_all
@@ -89,14 +87,7 @@ roll1 = Roll.new({
   })
 
 roll1.save()
-#
-# cut1 = Cut.new({
-#   "carpet_id" => carpet1.id,
-#   "cut_width" => 4,
-#   "cut_length" => 27.65
-#   })
-#
-# cut1.save()
+
 
 
 

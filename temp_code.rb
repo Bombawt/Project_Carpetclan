@@ -4,35 +4,35 @@
 ## Don't judge me.
 
 
-# def cut_carpet(new_cut)
-#   for cuts in cut_rolls
-#     if new_cut < cuts
-#       cuts =- new_cut
-#       return cuts ???
-#     else
-#       full_rolls =- 1
-#
-#
-# def test_remove_full_roll()
-#   @roll1.remove_full_roll
-#   assert_equal(2, @roll1.full_rolls)
-# end
-#
-# def test_cut_full_roll()
-#   @roll1.cut_full_roll(4.35)
-#   assert_equal(2, @roll1.full_rolls)
-#   assert_equal(25.65, )
-# end
-# 
-# def remove_full_roll()
-#   @full_rolls -= 1
-# end
-#
-# def cut_full_roll(new_cut)
-#   if new_cut > 30
-#     return "Error: Cut exceeds full roll length."
-#   else
-#     new_cut_roll = Cut.new(@roll1.carpet_id, @roll1.width, 30)
-#     return new_cut_roll.cut_carpet
-#   end
+##Full_roll testing, methods and specs.
+
+
+  # def return_full_rolls
+  #   result = @roll_length.keep_if{|roll| if @roll_length == 30;
+  #     return result
+  #   end}
+  # end
+
+
+
+
+
+  #   result = @rolls.keep_if{|roll| if roll.roll_length == 30;
+  #     return result
+  #   end}
+  # end
+
+
+
+
+  # def test_full_rolls()
+  #   result = @rolls.return_full_rolls
+  #   assert_equal([@roll1, @roll3], result)
+  # end
+  #
+# def test_return_full_rolls()
+#   result = @rolls.keep_if{|roll| if roll.roll_length == 30;
+#     return result
+#   end}
+#   assert_equal([@roll1, @roll3])
 # end
