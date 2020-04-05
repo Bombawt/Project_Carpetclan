@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Carpets</h1>
+
+
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Range</th>
+    <th>Supplier</th>
+    <th>Type</th>
+    <th>Pile</th>
+    <th>Colour</th>
+    <th>Buying Cost</th>
+    <th>Selling Price</th>
+  </tr>
+  <% for carpet in @carpets %>
+  <tr>
+    <td><%= carpet.id %></td>
+    <td><a href="/carpets/<%= carpet.range %>"><%= carpet.range %></a></td>
+    <td><a href="/suppliers/<%= carpet.supplier.id %>"><%= carpet.supplier.name %></a></td>
+    <td><%= carpet.type %></td>
+    <td><%= carpet.pile %></td>
+    <td><%= carpet.colour %></td>
+    <td><%= carpet.buying_cost %></td>
+    <td><%= carpet.selling_price %></td>
+  </tr>
+  <% end %>
+</table>
+
+</body>
+</html>

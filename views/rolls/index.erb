@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+</head>
+<body>
+
+<h1>Rolls</h1>
+
+
+<table>
+  <tr>
+    <th>ID Number</th>
+    <th>Range</th>
+    <th>Colour</th>
+    <th>Width</th>
+    <th>Length</th>
+  </tr>
+  <% for roll in @rolls %>
+  <tr>
+    <td><%= roll.id %></td>
+    <td><%= roll.carpet.range %></td>
+    <td><%= roll.carpet.colour %></td>
+    <td><%= roll.roll_width %></td>
+    <td><%= roll.roll_length %></td>
+  </tr>
+  <% end %>
+</table>
+
+</body>
+</html>
