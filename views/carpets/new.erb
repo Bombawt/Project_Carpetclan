@@ -1,0 +1,30 @@
+<form action="/carpets" method="POST">
+
+  <label for="range">Range: </label>
+  <input id="range" type="text" name="range" required/>
+  <p></p>
+  <label for="supplier_id">Supplier: </label>
+  <select id="supplier-select" name="supplier_id">
+    <% for supplier in @suppliers%>
+    <option value= <%=supplier.id%>> <%=supplier.name%></option>
+    <% end %>
+    </select>
+    <p></p>
+  <label for="type">Type: </label>
+  <input id="type" type="text" name="type" required/>
+  <p></p>
+  <label for="pile">Pile: </label>
+  <input id="pile" type="text" name="pile" required/>
+  <p></p>
+  <label for="colour">Colour: </label>
+  <input id="colour" type="text" name="colour" required/>
+  <p></p>
+  <label for="buying_cost">Buying Cost: </label>
+  <input id="buying_cost" type="text" name="buying_cost" required/>
+  <p></p>
+  <label for="selling_price">Selling Price: </label>
+  <input id="selling_price" type="text" name="selling_price" required/>
+  <p></p>
+
+
+ <input type="submit" value="Add Carpet"/>
