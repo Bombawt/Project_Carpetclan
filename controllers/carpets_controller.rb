@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 
 require_relative('../models/carpet.rb')
 require_relative('../models/supplier.rb')
+require_relative('../models/roll.rb')
 also_reload( '../models/*' )
 
 get '/carpets' do
@@ -10,7 +11,7 @@ get '/carpets' do
   erb ( :"carpets/index" )
 end
 
-get '/carpets/:name' do
-  @carpets = Carpets.find(params[:name])
+get '/carpets/:id' do
+  @carpets = Carpets.find(params['id'].to_i)
   erb (:"carpets/show")
 end
