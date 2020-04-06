@@ -24,3 +24,16 @@ get '/suppliers/:id' do
   @carpets = Carpet.all()
   erb( :"suppliers/show" )
 end
+
+
+get '/suppliers/:id/edit' do
+  id = params['id'].to_i()
+  @suppliers = Supplier.find(id)
+  erb(:"suppliers/edit")
+end
+
+post '/suppliers/:id' do
+  supplier = Supplier.new(params)
+  supplier.update
+  redirect('/suppliers/' + params['id'])
+end

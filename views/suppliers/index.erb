@@ -36,14 +36,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <td><%= supplier.name %></td>
     <td><%= supplier.rep %></td>
     <td><%= supplier.rep_contact %></td>
+    <td><a href="/suppliers/<%= supplier.id %>/edit"> Edit</td>
+    <td><a href="/suppliers/<%= supplier.id %>/destroy"> Delete</td>
   </tr>
   <% end %>
 </table>
 
 
 <p><button type="button" name="button"><a href="/suppliers/new">Add Supplier</a></button></p>
-<p><button type="button" name="button"><a href="/suppliers/edit">Edit Supplier</a></button></p>
-<p><button type="button" name="button"><a href="/suppliers/destroy">Delete Supplier</a></button></p>
 
 <p><button type="button" name="button"><a href="/">Home</a></button></p>
 </body>
