@@ -24,7 +24,7 @@ td, th {
 <table>
   <tr>
     <th>ID Number</th>
-    <th>Range</th>
+    <th>Brand</th>
     <th>Colour</th>
     <th>Width</th>
     <th>Length</th>
@@ -32,8 +32,8 @@ td, th {
   <% for roll in @rolls %>
   <tr>
     <td><%= roll.id %></td>
-    <td><%= roll.carpet.range %></td>
-    <td><%= roll.carpet.colour %></td>
+    <td><%= roll.carpet.brand %></td>
+    <td><%= roll.colour %></td>
     <td><%= roll.roll_width %></td>
     <td><%= roll.roll_length %></td>
   </tr>

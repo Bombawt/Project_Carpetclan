@@ -14,11 +14,8 @@ CREATE TABLE suppliers
 CREATE TABLE carpets
 (
   id SERIAL PRIMARY KEY,
-  range VARCHAR(255),
+  brand VARCHAR(255),
   supplier_id INT REFERENCES suppliers(id) ON DELETE CASCADE,
-  type VARCHAR(255),
-  pile VARCHAR(255),
-  colour VARCHAR(255),
   buying_cost FLOAT,
   selling_price FLOAT
 );
@@ -27,6 +24,7 @@ CREATE TABLE rolls
 (
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
+  colour VARCHAR(255),
   roll_width INT,
   roll_length FLOAT
 );

@@ -10,24 +10,28 @@ class TestRoll < Minitest::Test
     @roll1 = Roll.new({
       "carpet_id" => 2,
       "roll_width" => 4,
+      "colour" => "Blue",
       "roll_length" => 30.00
       })
 
     @roll2 = Roll.new({
       "carpet_id" => 2,
       "roll_width" => 4,
+      "colour" => "Yellow",
       "roll_length" => 27.50
       })
 
     @roll3 = Roll.new({
       "carpet_id" => 1,
       "roll_width" => 5,
+      "colour" => "Black",
       "roll_length" => 30.00
       })
 
     @roll4 = Roll.new({
       "carpet_id" => 1,
       "roll_width" => 4,
+      "colour" => "Red",
       "roll_length" => 7.45
       })
 

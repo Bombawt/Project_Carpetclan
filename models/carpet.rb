@@ -2,16 +2,14 @@ require_relative( '../db/sql_runner' )
 
 class Carpet
 
-  attr_accessor( :range, :type, :pile, :colour, :buying_cost, :selling_price )
+  attr_accessor( :brand, :buying_cost, :selling_price )
   attr_reader(:id, :supplier_id)
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
-    @range = options['range']
+    @brand = options['brand']
     @supplier_id = options['supplier_id'].to_i
-    @type = options['type']
-    @pile = options['pile']
-    @colour = options['colour']
+    # @type = options['type'] ADD IN AGAIN ABOVE AND BELOW
     @buying_cost = options['buying_cost']
     @selling_price = options['selling_price']
   end
@@ -19,18 +17,15 @@ class Carpet
   def save()
     sql = "INSERT INTO carpets
     (
-      range,
+      brand,
       supplier_id,
-      type,
-      pile,
-      colour,
       buying_cost,
       selling_price
       )
       VALUES
-      ($1, $2, $3, $4, $5, $6, $7)
+      ($1, $2, $3, $4)
       RETURNING id"
-      values = [@range, @supplier_id, @type, @pile, @colour, @buying_cost, @selling_price]
+      values = [@brand, @supplier_id, @buying_cost, @selling_price]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
   end
@@ -38,19 +33,16 @@ class Carpet
   def update()
     sql = "UPDATE carpets SET
     (
-      range,
+      brand,
       supplier_id,
-      type,
-      pile,
-      colour,
       buying_cost,
       selling_price
       )
       =
-      ($1, $2, $3, $4, $5, $6, $7)
-      WHERE id= $8
+      ($1, $2, $3, $4)
+      WHERE id= $5
     "
-    values = [@range, @supplier_id, @type, @pile, @colour, @buying_cost, @selling_price, @id]
+    values = [@brand, @supplier_id, @buying_cost, @selling_price, @id]
     SqlRunner.run(sql, values)
   end
 
