@@ -78,16 +78,7 @@ class Roll
     return Carpet.new(results.first)
   end
 
-  def cut_roll(new_cut)
-    if new_cut < @roll_length
-      return @roll_length -= new_cut
-    end
-      return "Not enough stock, please try another roll."
-  end
-
-  def full_roll()
-    @roll_length == 30
-  end
+  
 
 
 
