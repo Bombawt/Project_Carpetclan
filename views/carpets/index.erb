@@ -14,6 +14,8 @@ td, th {
   padding: 8px;
 }
 
+tr:nth-child(even) {background-color: #f2f2f2;}
+
 </style>
 </head>
 <body>
@@ -51,16 +53,17 @@ td, th {
     Out of Stock
     <% end %>
     </td>
+    <td><a href="/carpets/<%= carpet.id %>/edit"> Edit</td>
+    <td><a href="/carpets/<%= carpet.id %>/destroy"> Delete</td>
   </tr>
   <% end %>
 </table>
 
-<p><button type="button" name="button"><a href="/carpets/new">Add Carpet</a></button></p>
-<p><button type="button" name="button"><a href="/carpets/edit">Edit Carpets</a></button></p>
-<p><button type="button" name="button"><a href="/carpets/destroy">Delete Carpets</a></button></p>
+<center><p><button type="button" name="button"><a href="/carpets/new">Add Carpet</a></button></p>
+
 
 <p><button type="button" name="button"><a href="/">Home</a></button></p>
-
+</center>
 
 </body>
 </html>
