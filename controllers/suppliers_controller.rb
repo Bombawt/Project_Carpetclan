@@ -18,3 +18,9 @@ post '/suppliers' do
   @new_supplier.save()
   redirect to ('/suppliers')
 end
+
+get '/suppliers/:id' do
+  @suppliers = Supplier.find(params['id'].to_i)
+  @carpets = Carpet.all()
+  erb( :"suppliers/show" )
+end

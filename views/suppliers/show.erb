@@ -1,0 +1,14 @@
+<h1><%= @suppliers.name %></h1>
+
+<p>Rep Name: <%= @suppliers.rep %></p>
+<p>Rep Contact: <%= @suppliers.rep_contact %></p>
+
+<h3>Brands Supplied by <%= @suppliers.name %>:</h3>
+
+<ul>
+  <% for carpet in @carpets %>
+    <% if carpet.supplier_id == @suppliers.id %>
+    <li><%= carpet.brand %></li>
+    <% end %>
+  <% end %>
+</ul>
