@@ -37,12 +37,20 @@ td, th {
     <td><a href="/suppliers/<%= carpet.supplier.id %>"><%= carpet.supplier.name %></a></td>
     <td><%= carpet.buying_cost %></td>
     <td><%= carpet.selling_price %></td>
+    <td>
     <% for roll in @rolls %>
       <% if carpet.id == roll.carpet_id %>
-  <td><a href="/carpets/<%= carpet.id %>">Check Stock</a></td>
+  <a href="/carpets/<%= carpet.id %>">Check Stock</a>
+  <% @found = true %>
   <% break %>
+  <% else %>
+  <%@found = false%>
       <% end %>
     <% end %>
+    <% if !@found %>
+    Out of Stock
+    <% end %>
+    </td>
   </tr>
   <% end %>
 </table>

@@ -22,3 +22,10 @@ post '/carpets' do
   @new_carpet.save()
   redirect to ('/carpets')
 end
+
+get '/carpets/:id' do
+  @carpets = Carpet.find(params['id'].to_i)
+  @rolls = Roll.all()
+  @suppliers = Supplier.all()
+  erb(:"carpets/show")
+end

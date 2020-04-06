@@ -1,1 +1,27 @@
 
+<h1><%= @carpets.brand %></h1>
+
+
+<% for supplier in @suppliers %>
+  <% if @carpets.supplier_id == supplier.id %>
+
+<h3>Supplied by: <a href="/suppliers/:id<% supplier.id%>"><%=supplier.name%></a></h3>
+<h3>Buying Cost: <%= @carpets.buying_cost%></h3>
+<h3>Selling Price: <%= @carpets.selling_price%></h3>
+
+  <% end %>
+<% end %>
+
+<% for roll in @rolls %>
+  <% if @carpets.id == roll.carpet_id %>
+
+    <li>Colour: <%= roll.colour %></li>
+    <li>Width (m): <%= roll.roll_width %></li>
+    <li>Length (m): <%= roll.roll_length %>
+    <% if roll.roll_length.to_f < 5 %>
+    <b>Low Stock</b> </li>
+    <% end %>
+    <p></p>
+    <p></p>
+  <% end %>
+<% end %>
