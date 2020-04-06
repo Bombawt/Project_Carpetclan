@@ -21,3 +21,16 @@ post '/rolls' do
   @new_roll.save()
   redirect to ('/rolls')
 end
+
+get '/rolls/:id/edit' do
+  id = params['id'].to_i()
+  @rolls = Roll.find(id)
+  @carpets = Carpet.all()
+  erb(:"rolls/edit")
+end
+
+post '/rolls/:id' do
+  roll = Roll.new(params)
+  roll.update()
+  redirect('/rolls')
+end

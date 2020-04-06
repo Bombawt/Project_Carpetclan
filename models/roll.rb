@@ -42,7 +42,7 @@ class Roll
       ($1, $2, $3, $4)
       WHERE id = $5
     "
-    values = [@carpet_id, @colour, @roll_width, @roll_length]
+    values = [@carpet_id, @colour, @roll_width, @roll_length, @id]
     SqlRunner.run(sql, values)
   end
 
@@ -67,7 +67,7 @@ class Roll
     sql = "SELECT * FROM rolls WHERE id = $1"
     values = [id]
     roll_hash = SqlRunner.run(sql, values).first()
-    return nil if roll == nil
+    return nil if roll_hash == nil
     return Roll.new(roll_hash)
   end
 
