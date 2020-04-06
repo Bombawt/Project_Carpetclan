@@ -29,6 +29,13 @@ get '/rolls/:id/edit' do
   erb(:"rolls/edit")
 end
 
+post '/rolls/:id/destroy' do
+  id = params['id'].to_i()
+  roll = Roll.find(id)
+  roll.destroy(id)
+  erb(:"rolls/destroy")
+end
+
 post '/rolls/:id' do
   roll = Roll.new(params)
   roll.update()

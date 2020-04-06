@@ -37,6 +37,13 @@ get '/carpets/:id/edit' do
   erb(:"carpets/edit")
 end
 
+post '/carpets/:id/destroy' do
+  id = params['id'].to_i()
+  carpet = Carpet.find(id)
+  carpet.destroy(id)
+  erb(:"carpets/destroy")
+end
+
 post '/carpets/:id' do
   carpet = Carpet.new(params)
   carpet.update

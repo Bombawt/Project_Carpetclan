@@ -39,7 +39,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     <td><%= roll.roll_width %></td>
     <td><%= roll.roll_length %></td>
     <td><a href="/rolls/<%= roll.id %>/edit"> Edit</td>
-    <td><a href="/rolls/<%= roll.id %>/destroy"> Delete</td>
+      <td><form action="/rolls/<%= roll.id %>/destroy" method = "post">
+      <button type="submit">Delete</button>
+      </form></td>
   </tr>
   <% end %>
 </table>

@@ -32,6 +32,13 @@ get '/suppliers/:id/edit' do
   erb(:"suppliers/edit")
 end
 
+post '/suppliers/:id/destroy' do
+  id = params['id'].to_i()
+  supplier = Supplier.find(id)
+  supplier.destroy(id)
+  erb(:"suppliers/destroy")
+end
+
 post '/suppliers/:id' do
   supplier = Supplier.new(params)
   supplier.update
