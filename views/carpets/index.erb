@@ -17,8 +17,9 @@
     <th>ID Number</th>
     <th>Brand</th>
     <th>Supplier</th>
-    <th>Buying Cost</th>
-    <th>Selling Price</th>
+    <th>Buying Cost (m<sup>2</sup>)</th>
+    <th>Selling Price (m<sup>2</sup>)</th>
+    <th>Margin (m<sup>2</sup>)</th>
     <th>Stock</th>
   </tr>
   <% for carpet in @carpets %>
@@ -28,8 +29,8 @@
     <td><a href="/suppliers/<%= carpet.supplier.id %>"><%= carpet.supplier.name %></a></td>
     <td><%= carpet.buying_cost %></td>
     <td><%= carpet.selling_price %></td>
-    <td>
-    <% for roll in @rolls %>
+    <td><%= carpet.margin %></td>
+    <td><% for roll in @rolls %>
       <% if carpet.id == roll.carpet_id %>
   <a href="/carpets/<%= carpet.id %>">Check Stock</a>
   <% @found = true %>

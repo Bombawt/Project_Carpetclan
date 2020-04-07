@@ -96,5 +96,9 @@ class Carpet
     return (total.ceil) - 0.01
   end
 
+  def margin()
+    total = @selling_price - @buying_cost
+    return total.round(2)
+  end
 
 end
