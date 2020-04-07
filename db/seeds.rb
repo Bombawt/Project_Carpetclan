@@ -35,9 +35,7 @@ supplier3.save()
 carpet1 = Carpet.new({
   "brand" => "Soft Noble",
   "supplier_id" => supplier1.id,
-  # "type" => "Polypropolene",
-  "buying_cost" => 5.95,
-  "selling_price" => 12.99
+  "buying_cost" => 5.95
   })
 
 carpet1.save()
@@ -45,9 +43,7 @@ carpet1.save()
 carpet2 = Carpet.new({
   "brand" => "Jupiter",
   "supplier_id" => supplier1.id,
-  # "type" => "Polypropolene",
   "buying_cost" => 5.95,
-  "selling_price" => 12.99
   })
 
 carpet2.save()
@@ -55,9 +51,7 @@ carpet2.save()
 carpet3 = Carpet.new({
   "brand" => "Cottage Berber",
   "supplier_id" => supplier2.id,
-  # "type" => "100% Wool",
   "buying_cost" => 8.95,
-  "selling_price" => 18.99
   })
 
 carpet3.save()
@@ -65,16 +59,14 @@ carpet3.save()
 carpet4 = Carpet.new({
   "brand" => "Elegance",
   "supplier_id" => supplier3.id,
-  # "type" => "Polypropolene",
   "buying_cost" => 7.21,
-  "selling_price" => 15.99
   })
 
 carpet4.save()
 
 roll1 = Roll.new({
   "carpet_id" => carpet1.id,
-  "colour" => "Grey Mare 900",
+  "colour" => "Grey Mare",
   "roll_width" => 4,
   "roll_length" => 30
 
@@ -93,7 +85,7 @@ roll2.save()
 
 roll3 = Roll.new({
   "carpet_id" => carpet1.id,
-  "colour" => "Snowdrop 620",
+  "colour" => "Snowdrop",
   "roll_width" => 5,
   "roll_length" => 14.35
   })

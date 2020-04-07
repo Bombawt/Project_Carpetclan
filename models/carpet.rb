@@ -9,9 +9,8 @@ class Carpet
     @id = options['id'].to_i if options['id']
     @brand = options['brand']
     @supplier_id = options['supplier_id'].to_i
-    # @type = options['type'] ADD IN AGAIN ABOVE AND BELOW
     @buying_cost = options['buying_cost']
-    @selling_price = options['selling_price']
+    @selling_price = markup
   end
 
   def save()
@@ -92,7 +91,10 @@ class Carpet
     return results.map{|results_hash|Roll.new(results_hash)}
   end
 
-
+  def markup()
+    total = (@buying_cost * 1.2 * 1.75)
+    return (total.ceil) - 0.01
+  end
 
 
 end
