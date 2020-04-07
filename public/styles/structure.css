@@ -1,5 +1,5 @@
 header {
-  background: black url('/images/warehouse_header.jpg');
+  background: url('/images/warehouse_header.jpg');
   background-size: 100%;
   background-repeat: no-repeat;
   padding: 60px;
@@ -11,4 +11,37 @@ header {
 
 h1 {
   font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
+}
+
+a{
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
+}
+
+a:link {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  border: 2px solid #008CBA;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+a:visited {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  border: 2px solid #008CBA;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+a:hover {
+  background-color: white;
+  color: #008CBA;
 }
