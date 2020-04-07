@@ -25,6 +25,6 @@ CREATE TABLE rolls
   id SERIAL PRIMARY KEY,
   carpet_id INT REFERENCES carpets(id) ON DELETE CASCADE,
   colour VARCHAR(255),
-  roll_width INT,
+  roll_width FLOAT,
   roll_length FLOAT
 );

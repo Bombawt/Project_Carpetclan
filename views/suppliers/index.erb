@@ -18,6 +18,7 @@
     <th>Name</th>
     <th>Rep</th>
     <th>Rep Contact</th>
+    <th>Ranges</th>
   </tr>
   <% for supplier in @suppliers %>
   <tr>
@@ -25,6 +26,7 @@
     <td><%= supplier.name %></td>
     <td><%= supplier.rep %></td>
     <td><%= supplier.rep_contact %></td>
+    <td><a href="/suppliers/<%= supplier.id %>">Check Ranges</td>
     <td><a href="/suppliers/<%= supplier.id %>/edit"> Edit</td>
     <td><form action="/suppliers/<%= supplier.id %>/destroy" method = "post">
       <button type="submit">Delete</button>
@@ -33,8 +35,9 @@
   <% end %>
 </table>
 
-
+<center>
 <p><a href="/suppliers/new">Add Supplier</a></p>
 
 <p><a href="/">Home</a></p>
+</center>
 </body>

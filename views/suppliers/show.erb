@@ -7,22 +7,35 @@
   <h1>CarpetClan Warehouse Stock Management</h1>
 </header>
 
+<center>
 <h1><%= @suppliers.name %></h1>
 
 <p>Rep Name: <%= @suppliers.rep %></p>
 <p>Rep Contact: <%= @suppliers.rep_contact %></p>
 
-<h3>Brands Supplied by <%= @suppliers.name %>:</h3>
+<h2>Brands Supplied by <%= @suppliers.name %>:</h2>
+</center>
 
-<ul>
+<table>
+  <tr>
+    <th>Brand</th>
+    <th>Buying Cost</th>
+    <th>Selling Price</th>
+    <th>Margin</th>
+  </tr>
   <% for carpet in @carpets %>
+    <tr>
     <% if carpet.supplier_id == @suppliers.id %>
-    <li><%= carpet.brand %></li>
-    <% end %>
+    <td><%= carpet.brand %></td>
+    <td><%= carpet.buying_cost %></td>
+    <td><%= carpet.selling_price %></td>
+    <td><%= carpet.margin %></td>
+  </tr>
   <% end %>
-</ul>
-
+<% end %>
+</table>
 <center>
+  <p><a href="/carpets">Back to Carpets</a></p>
 <p><a href="/suppliers">Back to Suppliers</a></p>
 <p><a href="/">Home</a></p>
 </center>
