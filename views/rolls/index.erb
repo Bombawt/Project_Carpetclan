@@ -19,14 +19,23 @@
     <th>Colour</th>
     <th>Width</th>
     <th>Length</th>
+    <th>Cost Value (£)</th>
+    <th>Retail Value (£)</th>
+    <th>Margin (£)</th>
   </tr>
   <% for roll in @rolls %>
+  <% cost_value = roll.meterage * roll.carpet.buying_cost %>
+  <% retail_value = roll.meterage * roll.carpet.selling_price %>
+  <% margin = retail_value - cost_value %>
   <tr>
     <td><%= roll.id %></td>
     <td><%= roll.carpet.brand %></td>
     <td><%= roll.colour %></td>
     <td><%= roll.roll_width %></td>
     <td><%= roll.roll_length %></td>
+    <td><%= cost_value.round(2) %></td>
+    <td><%= retail_value.round(2)%></td>
+    <td><%= margin.round(2) %></td>
     <td><a href="/rolls/<%= roll.id %>/edit"> Edit</td>
       <td><form action="/rolls/<%= roll.id %>/destroy" method = "post">
       <button type="submit">Delete</button>

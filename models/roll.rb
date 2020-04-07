@@ -10,8 +10,8 @@ class Roll
     @id = options['id'].to_i if options['id']
     @carpet_id = options['carpet_id'].to_i
     @colour = options['colour']
-    @roll_width = options['roll_width']
-    @roll_length = options['roll_length']
+    @roll_width = options['roll_width'].to_f
+    @roll_length = options['roll_length'].to_f
   end
 
   def save()
@@ -80,7 +80,7 @@ class Roll
 
   def meterage()
     result = @roll_width * @roll_length
-    return result.to_f
+    return result.round(2)
   end
 
 
