@@ -9,7 +9,7 @@
 
 <form action="/rolls" method="POST">
 
-
+<h1>Add New Roll</h1>
   <label for="carpet_id">Brand: </label>
   <select id="carpet-range-select" name="carpet_id">
     <% for carpet in @carpets%>
@@ -32,3 +32,5 @@
 
 
  <input type="submit" value="Add Roll"/>
+
+ <p><a href="/rolls">Back</a></p>

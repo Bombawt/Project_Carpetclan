@@ -7,6 +7,7 @@
   <h1>CarpetClan Warehouse Stock Management</h1>
 </header>
 
+<h1>Edit Roll</h1>
 <form action="/rolls/<%= @rolls.id %>" method="POST">
   <label for="carpet_id">Brand: </label>
   <select id="carpet-range-select" name="carpet_id">
@@ -30,3 +31,5 @@
 
   <input type="submit" value="Edit Roll"/>
  </form>
+
+<p><a href="/rolls">Back to Rolls</a></p>

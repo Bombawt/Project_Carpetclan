@@ -9,7 +9,7 @@ header {
   font-size: 30px;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
   padding: 50px, 10px;
   text-align: center;
