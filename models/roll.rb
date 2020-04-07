@@ -78,7 +78,12 @@ class Roll
     return Carpet.new(results.first)
   end
 
-  
+  def meterage()
+    result = @roll_width * @roll_length
+    return result.to_f
+  end
+
+
 
 
 

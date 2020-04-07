@@ -17,6 +17,7 @@
 <h3>Supplied by: <a href="/suppliers/<%=supplier.id%>"><%=supplier.name%></a></h3>
 <h3>Buying Cost: <%= @carpets.buying_cost%></h3>
 <h3>Selling Price: <%= @carpets.selling_price%></h3>
+<h3>Margin: <%= @carpets.margin %></h3>
 
   <% end %>
 <% end %>
@@ -27,7 +28,7 @@
     <li>Colour: <%= roll.colour %></li>
     <li>Width (m): <%= roll.roll_width %></li>
     <li>Length (m): <%= roll.roll_length %>
-    <% if roll.roll_length.to_f < 5 %>
+    <% if roll.roll_length.to_f < 7.5 %>
     <b>Low Stock</b> </li>
     <% end %>
     <p></p>
