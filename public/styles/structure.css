@@ -1,0 +1,10 @@
+header {
+  background: black url('/images/warehouse_header.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding: 60px;
+  font-family: "Open Sans", "helvetica neue", helvetica, arial, sans-serif;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
