@@ -9,7 +9,7 @@ class Carpet
     @id = options['id'].to_i if options['id']
     @brand = options['brand']
     @supplier_id = options['supplier_id'].to_i
-    @buying_cost = options['buying_cost']
+    @buying_cost = options['buying_cost'].to_f
     @selling_price = markup
   end
 
