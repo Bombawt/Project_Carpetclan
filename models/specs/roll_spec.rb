@@ -20,6 +20,13 @@ class TestRoll < Minitest::Test
       "roll_width" => 5,
       "roll_length" => 14.50
       })
+
+    @roll2 = Roll.new({
+      "carpet_id" => @carpet1.id,
+      "colour" => "Testcolour2",
+      "roll_width" => 4,
+      "roll_length" => 6.5
+      })
   end
 
   def test_meterage()
@@ -27,4 +34,9 @@ class TestRoll < Minitest::Test
     assert_equal(72.50, result)
   end
 
+  def test_low_stock
+    result = @roll2.low_stock()
+    assert_equal(true, result)
+  end
+  
 end

@@ -32,7 +32,7 @@
     <td><%= roll.carpet.brand %></td>
     <td><%= roll.colour %></td>
     <td><%= roll.roll_width %></td>
-    <td><%= roll.roll_length %></td>
+    <td class="<%= roll.low_stock() ? 'red' : '' %>"><%= roll.roll_length %></td>
     <td><%= cost_value.round(2) %></td>
     <td><%= retail_value.round(2)%></td>
     <td><%= margin.round(2) %></td>

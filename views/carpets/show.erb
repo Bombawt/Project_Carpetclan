@@ -22,19 +22,22 @@
   <% end %>
 <% end %>
 
+<table>
+  <tr>
+    <th>Colour</th>
+    <th>Width</th>
+    <th>Length</th>
+  </tr>
 <% for roll in @rolls %>
+  <tr>
   <% if @carpets.id == roll.carpet_id %>
-
-    <li>Colour: <%= roll.colour %></li>
-    <li>Width (m): <%= roll.roll_width %></li>
-    <li>Length (m): <%= roll.roll_length %>
-    <% if roll.roll_length.to_f < 7.5 %>
-    <b>Low Stock</b> </li>
-    <% end %>
-    <p></p>
-    <p></p>
+    <td><%= roll.colour %></td>
+    <td><%= roll.roll_width %></td>
+    <td class="<%= roll.low_stock() ? 'red' : '' %>"><%= roll.roll_length %></td>
+  </tr>
   <% end %>
 <% end %>
+</table>
 
 
 <center>

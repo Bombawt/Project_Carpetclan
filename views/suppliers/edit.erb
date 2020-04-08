@@ -9,16 +9,18 @@
 
 <h1>Edit Supplier</h1>
 
+
+<center>
 <form action="/suppliers/<%= @suppliers.id %>" method="POST">
 
   <label for="name">Company Name: </label>
-  <input id="name" type="text" name="name" required/>
+  <input id="name" type="text" name="name" placeholder="<%= @suppliers.name %>" required/>
   <p></p>
   <label for="rep">Rep: </label>
-  <input id="rep" type="text" name="rep" required/>
+  <input id="rep" type="text" name="rep" placeholder="<%= @suppliers.rep %>" required/>
   <p></p>
   <label for="rep_contact">Rep Contact: </label>
-  <input id="rep_contact" type="tel" name="rep_contact" required/>
+  <input id="rep_contact" type="tel" name="rep_contact" placeholder="<%= @suppliers.rep_contact %>" required/>
   <p></p>
 
   <input type="submit" value="Edit Supplier"/>

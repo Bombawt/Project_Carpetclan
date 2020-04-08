@@ -83,6 +83,12 @@ class Roll
     return result.round(2)
   end
 
+  def low_stock()
+    if @roll_length <= 7.5
+      return true
+    end
+    return false
+  end
 
 
 

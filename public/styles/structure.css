@@ -46,4 +46,9 @@ a:visited {
 a:hover {
   background-color: white;
   color: #008CBA;
+  cursor: default;
+}
+
+.red {
+  color: red;
 }

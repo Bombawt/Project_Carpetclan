@@ -8,6 +8,8 @@
 </header>
 
 <h1>Edit Roll</h1>
+
+<center>
 <form action="/rolls/<%= @rolls.id %>" method="POST">
   <label for="carpet_id">Brand: </label>
   <select id="carpet-range-select" name="carpet_id">
@@ -17,7 +19,7 @@
     </select>
     <p></p>
     <label for="colour">Colour: </label>
-    <input id="colour" type="text" name="colour" required/>
+    <input id="colour" type="text" name="colour" placeholder="<%= @rolls.colour %>" required/>
     <p></p>
   <label for="roll_width">Roll Width: </label>
   <select id="roll-width-select" name="roll_width">
@@ -26,7 +28,7 @@
     </select>
     <p></p>
   <label for="roll_length">Roll Length: </label>
-  <input id="roll_length" type="text" name="roll_length" required/>
+  <input id="roll_length" type="text" name="roll_length" placeholder="<%= @rolls.roll_length %>" required/>
   <p></p>
 
   <input type="submit" value="Edit Roll"/>

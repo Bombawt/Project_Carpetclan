@@ -9,10 +9,11 @@
 
 <h1>Edit Carpet</h1>
 
+<center>
 <form action="/carpets/<%= @carpets.id %>" method="POST">
 
   <label for="brand">Brand: </label>
-  <input id="brand" type="text" name="brand" required/>
+  <input id="brand" type="text" name="brand" placeholder="<%= @carpets.brand %>" required/>
   <p></p>
   <label for="supplier_id">Supplier: </label>
   <select id="supplier-select" name="supplier_id">
@@ -22,10 +23,10 @@
     </select>
     <p></p>
   <label for="buying_cost">Buying Cost: </label>
-  <input id="buying_cost" type="text" name="buying_cost" required/>
+  <input id="buying_cost" type="text" name="buying_cost" placeholder="<%= @carpets.buying_cost %>" required/>
   <p></p>
   <label for="selling_price">Selling Price: </label>
-  <input id="selling_price" type="text" name="selling_price" required/>
+  <input id="selling_price" type="text" name="selling_price" placeholder="<%= @carpets.selling_price %>" required/>
   <p></p>
 
 
