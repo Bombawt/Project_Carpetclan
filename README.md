@@ -11,6 +11,10 @@ We were tasked to build an app over the course of a week, which allows a shopkee
 - Show an inventory page, listing all the details for all the products in stock in a single view.
 - As well as showing stock quantity as a number, the app should visually highlight “low stock” and “out of stock” items to the user.
 
+## Heroku
+
+[Project Carpetclan](https://project-carpetclan.herokuapp.com/)
+
 
 ## Setup
 
